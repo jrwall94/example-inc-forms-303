@@ -1,13 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View
-} from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { z } from "zod";
 export default function SignInForm() {
   const signInSchema = z.object({
@@ -46,6 +40,7 @@ export default function SignInForm() {
             placeholder="Email@Example.com"
             value={value}
             onChangeText={onChange}
+            secureTextEntry
           />
         )}
       />
