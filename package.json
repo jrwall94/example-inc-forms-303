@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
-    "@hookform/resolvers": "^7.0.1",
+    "@hookform/resolvers": "^7.0.2",
     "@react-native-vector-icons/ionicons": "^14.0.0",
     "expo": "~58.0.22",
     "expo-constants": "~58.0.14",
