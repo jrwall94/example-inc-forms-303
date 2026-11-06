@@ -1,4 +1,4 @@
-import { global } from "@/app/styles/global";
+import { global } from "@/styles/global";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Ionicons } from "@react-native-vector-icons/ionicons";
 import { useState } from "react";

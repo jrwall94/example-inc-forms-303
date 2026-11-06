@@ -1,5 +1,5 @@
-import { global } from "@/app/styles/global";
 import EmployeeInfoForm from "@/components/employee-info-form";
+import { global } from "@/styles/global";
 import { ScrollView, Text, View } from "react-native";
 
 export default function EmployeeInfo() {
