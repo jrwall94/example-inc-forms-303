@@ -1,10 +1,11 @@
 import EmployeeInfoForm from "@/components/employee-info-form";
 import { global } from "@/styles/global";
 import { ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function EmployeeInfo() {
   return (
-    <View style={global.page}>
+    <SafeAreaView edges={["left", "right", "bottom"]}>
       <ScrollView contentContainerStyle={global.content}>
         <View style={global.card}>
           <Text style={global.title}>Employee Information</Text>
@@ -14,6 +15,6 @@ export default function EmployeeInfo() {
           <EmployeeInfoForm />
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

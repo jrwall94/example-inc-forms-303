@@ -1,15 +1,16 @@
 import LinkButton from "@/components/link-button";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AccountScreen() {
   return (
-    <View>
+    <SafeAreaView edges={["left", "right", "bottom"]}>
       <Text>Account</Text>
       <View style={styles.container}>
         <LinkButton path="../sign-in" text="Sign In" />
         <LinkButton path="../sign-up" text="Sign Up" />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

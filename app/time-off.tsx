@@ -1,10 +1,10 @@
 import TimeOffForm from "@/components/time-off-form";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TimeOff() {
   return (
-    <View>
+    <SafeAreaView edges={["left", "right", "bottom"]}>
       <TimeOffForm />
-    </View>
+    </SafeAreaView>
   );
 }

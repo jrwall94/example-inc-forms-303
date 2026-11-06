@@ -1,11 +1,10 @@
-import JobAppForm from "@/components/job-app-form";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ApplicationsScreen() {
   return (
-    <View>
+    <SafeAreaView edges={["left", "right", "bottom"]}>
       <Text>Apply for a job:</Text>
-      <JobAppForm />
-    </View>
+    </SafeAreaView>
   );
 }
