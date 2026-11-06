@@ -4,7 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { z } from "zod";
 
-import { global } from "@/app/styles/global";
+import { global } from "@/styles/global";
 
 export default function SignInForm() {
   const signInSchema = z.object({

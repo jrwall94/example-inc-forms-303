@@ -6,7 +6,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { z } from "zod";
 
-import { global } from "@/app/styles/global";
+import { global } from "@/styles/global";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { router } from "expo-router";
