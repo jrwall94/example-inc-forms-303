@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export const global = StyleSheet.create({
+  container: {
+    padding: 24,
+    justifyContent: "center",
+  },
   page: {
     flex: 1,
     backgroundColor: "#F3F6FB",

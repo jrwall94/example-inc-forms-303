@@ -4,7 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { z } from "zod";
 
-import { global } from "@/app/styles/global";
+import { global } from "@/styles/global";
 
 export default function SignInForm() {
   const signInSchema = z.object({
@@ -30,7 +30,7 @@ export default function SignInForm() {
   };
 
   return (
-    <View>
+    <View style={global.container}>
       <Text style={global.title}>Enter Email and Password</Text>
 
       <Text style={global.label}>Email</Text>

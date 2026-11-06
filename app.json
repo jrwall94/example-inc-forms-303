@@ -34,7 +34,8 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "@react-native-vector-icons/ionicons"
+      "@react-native-vector-icons/ionicons",
+      "@react-native-community/datetimepicker"
     ],
     "experiments": {
       "typedRoutes": true
