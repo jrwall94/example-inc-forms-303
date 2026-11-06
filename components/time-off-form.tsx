@@ -21,7 +21,13 @@ const leaveReasons = [
   { label: "Other", value: "other" },
 ];
 
-export default function TimeOffForm() {
+type TimeOffFormProps = {
+  initialEmail?: string;
+};
+
+export default function TimeOffForm({
+  initialEmail = "",
+}: TimeOffFormProps) {
   const [showPicker, setShowPicker] = useState<"startDate" | "endDate" | null>(
     null,
   );
@@ -46,7 +52,7 @@ export default function TimeOffForm() {
   } = useForm<TimeOffForm>({
     resolver: zodResolver(timeOffSchema),
     defaultValues: {
-      email: "",
+      email: initialEmail,
       name: "",
       startDate: undefined,
       endDate: undefined,
