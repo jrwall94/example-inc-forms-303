@@ -30,7 +30,7 @@ export default function SignInForm() {
   };
 
   return (
-    <View>
+    <View style={global.container}>
       <Text style={global.title}>Enter Email and Password</Text>
 
       <Text style={global.label}>Email</Text>
