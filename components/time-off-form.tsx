@@ -9,7 +9,6 @@ import { z } from "zod";
 import { global } from "@/styles/global";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { router } from "expo-router";
 import { Dropdown } from "react-native-element-dropdown";
 
 const leaveReasons = [
@@ -25,24 +24,28 @@ type TimeOffFormProps = {
   initialEmail?: string;
 };
 
-export default function TimeOffForm({
-  initialEmail = "",
-}: TimeOffFormProps) {
+export default function TimeOffForm({ initialEmail = "" }: TimeOffFormProps) {
+  const [success, setSuccess] = useState("");
   const [showPicker, setShowPicker] = useState<"startDate" | "endDate" | null>(
     null,
   );
-  const timeOffSchema = z.object({
-    email: z.email("Please enter a valid email").trim(),
-    name: z.string().trim().min(1, "Please enter your name"),
-    startDate: z.date("Please choose a valid date"),
-    endDate: z.date("Please choose a valid date"),
-    reason: z.string().min(1, "Please enter the reason for your request"),
-  });
+  const timeOffSchema = z
+    .object({
+      email: z.email("Please enter a valid email").trim(),
+      name: z.string().trim().min(1, "Please enter your name"),
+      startDate: z.date("Please choose a valid date"),
+      endDate: z.date("Please choose a valid date"),
+      reason: z.string().min(1, "Please enter the reason for your request"),
+    })
+    .refine((values) => values.endDate >= values.startDate, {
+      message: "End date must be on or after the start date",
+      path: ["endDate"],
+    });
 
   type TimeOffForm = z.infer<typeof timeOffSchema>;
 
   const onSubmit = () => {
-    router.replace("/logged-in");
+    setSuccess("Time Off Request submitted succesfully");
   };
 
   const {
@@ -109,7 +112,7 @@ export default function TimeOffForm({
                   style={({ pressed }) => [
                     styles.dateButton,
                     pressed && global.buttonPressed,
-                    errors.startDate && global.inputError,
+                    errors.startDate && styles.dateButtonError,
                   ]}
                 >
                   <Text style={styles.dateButtonText}>
@@ -147,7 +150,7 @@ export default function TimeOffForm({
                   style={({ pressed }) => [
                     styles.dateButton,
                     pressed && global.buttonPressed,
-                    errors.startDate && global.inputError,
+                    errors.endDate && styles.dateButtonError,
                   ]}
                 >
                   <Text style={styles.dateButtonText}>
@@ -169,11 +172,11 @@ export default function TimeOffForm({
               </View>
             )}
           />
-          {errors.endDate && (
-            <Text style={global.errorText}>{errors.endDate.message}</Text>
-          )}
         </View>
       </View>
+      {errors.endDate && (
+        <Text style={global.errorText}>{errors.endDate.message}</Text>
+      )}
       <Text style={global.label}>Reason:</Text>
       <Controller
         control={control}
@@ -205,6 +208,7 @@ export default function TimeOffForm({
       >
         <Text style={global.buttonText}>Submit Request</Text>
       </Pressable>
+      {success ? <Text style={global.success}>{success}</Text> : null}
     </View>
   );
 }
@@ -217,6 +221,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 5,
     marginBottom: 25,
+  },
+  dateButtonError: {
+    borderColor: "#dc2626",
+    borderWidth: 2,
   },
   dateButtonText: {
     color: "white",
