@@ -1,10 +1,19 @@
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import JobAppForm from "@/components/job-app-form";
+import { global } from "@/styles/global";
+import { ScrollView, Text, View } from "react-native";
 
 export default function ApplicationsScreen() {
   return (
-    <SafeAreaView edges={["left", "right", "bottom"]}>
-      <Text>Apply for a job:</Text>
-    </SafeAreaView>
+    <View style={global.page}>
+      <ScrollView contentContainerStyle={global.content}>
+        <View style={global.card}>
+          <Text style={global.title}>Job Application</Text>
+          <Text style={global.subtitle}>
+            Complete the form below to submit your job application.
+          </Text>
+          <JobAppForm />
+        </View>
+      </ScrollView>
+    </View>
   );
 }

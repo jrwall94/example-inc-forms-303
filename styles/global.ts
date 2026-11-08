@@ -104,4 +104,40 @@ export const global = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
   },
+
+  textArea: {
+    minHeight: 120,
+    textAlignVertical: "top",
+  },
+  documentSection: {
+    marginTop: 12,
+    marginBottom: 16,
+  },
+  documentHint: {
+    color: "#6B7A90",
+    fontSize: 13,
+    marginBottom: 10,
+  },
+  documentAction: {
+    backgroundColor: "#F3F6FB",
+    borderColor: "#94A3B8",
+    borderWidth: 1,
+    borderStyle: "dashed",
+    borderRadius: 10,
+    padding: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
+    minHeight: 52,
+  },
+  documentActionText: {
+    color: "#184CE7",
+    fontSize: 15,
+    fontWeight: "600",
+  },
+  documentMeta: {
+    color: "#6B7A90",
+    fontSize: 12,
+    marginTop: 4,
+  },
 });
