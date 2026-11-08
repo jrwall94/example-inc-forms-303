@@ -1,10 +1,13 @@
 import TimeOffForm from "@/components/time-off-form";
-import { View } from "react-native";
+import { useLocalSearchParams } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TimeOff() {
+  const { email } = useLocalSearchParams<{ email?: string }>();
+
   return (
-    <View>
-      <TimeOffForm />
-    </View>
+    <SafeAreaView edges={["left", "right", "bottom"]}>
+      <TimeOffForm initialEmail={email ?? ""} />
+    </SafeAreaView>
   );
 }

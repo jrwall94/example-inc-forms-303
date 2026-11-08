@@ -25,13 +25,16 @@ export default function SignInForm() {
 
   const router = useRouter();
 
-  const onSubmit = () => {
-    router.replace("/logged-in");
+  const onSubmit = ({ email }: signInFormData) => {
+    router.push({
+      pathname: "/logged-in",
+      params: { email: email },
+    });
   };
 
   return (
     <View style={global.container}>
-      <Text style={global.title}>Enter Email and Password</Text>
+      <Text style={global.title}>Sign in</Text>
 
       <Text style={global.label}>Email</Text>
       <Controller
@@ -43,7 +46,6 @@ export default function SignInForm() {
             placeholder="Email@Example.com"
             value={value}
             onChangeText={onChange}
-            secureTextEntry
           />
         )}
       />
@@ -60,6 +62,7 @@ export default function SignInForm() {
             placeholder="Enter Password"
             value={value}
             onChangeText={onChange}
+            secureTextEntry
           />
         )}
       />

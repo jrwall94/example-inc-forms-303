@@ -5,11 +5,6 @@ export const global = StyleSheet.create({
     padding: 24,
     justifyContent: "center",
   },
-  page: {
-    flex: 1,
-    backgroundColor: "#F3F6FB",
-  },
-
   content: {
     padding: 20,
     paddingBottom: 40,

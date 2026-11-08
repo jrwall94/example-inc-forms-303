@@ -1,14 +1,13 @@
 import SignUpForm from "@/components/sign-up-form";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 
 import LinkButton from "@/components/link-button";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SignUp() {
   return (
-    <View>
-      <Text>Sign Up:</Text>
+    <SafeAreaView edges={["left", "right", "bottom"]}>
       <SignUpForm />
-      <LinkButton path="./logged-in" text="Submit" />
-    </View>
+    </SafeAreaView>
   );
 }
