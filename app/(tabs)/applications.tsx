@@ -4,7 +4,7 @@ import { ScrollView, Text, View } from "react-native";
 
 export default function ApplicationsScreen() {
   return (
-    <View style={global.page}>
+    <View>
       <ScrollView contentContainerStyle={global.content}>
         <View style={global.card}>
           <Text style={global.title}>Job Application</Text>
